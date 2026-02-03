@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CatLedStripsMapper">
+    <resultMap type="com.ruoyi.system.domain.CatLedStrips" id="CatLedStripsResult">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="brand" column="brand" />
+        <result property="isSideLight" column="is_side_light" />
+        <result property="voltage" column="voltage" />
+        <result property="lengthMeters" column="length_meters" />
+        <result property="colorTemp" column="color_temp" />
+        <result property="stockQuantity" column="stock_quantity" />
+        <result property="unitPrice" column="unit_price" />
+        <result property="warehouseLocation" column="warehouse_location" />
+        <result property="status" column="status" />
+        <result property="delFlag" column="del_flag" />
+    </resultMap>
+
+    <sql id="selectLedStripsVo">
+        select id, name, brand, is_side_light, voltage, length_meters, color_temp, stock_quantity, unit_price, warehouse_location, status, del_flag from cat_led_strips
+    </sql>
+
+    <select id="selectLedStrips" parameterType="com.ruoyi.system.domain.CatLedStrips" resultMap="CatLedStripsResult">
+        <include refid="selectLedStripsVo" />
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null and name != ''"> and name = #{name}</if>
+            <if test="brand != null and brand != ''"> and brand = #{brand}</if>
+            <if test="isSideLight != null"> and is_side_light = #{isSideLight}</if>
+            <if test="voltage != null and voltage != ''"> and voltage = #{voltage}</if>
+            <if test="lengthMeters != null"> and length_meters = #{lengthMeters}</if>
+            <if test="colorTemp != null and colorTemp != ''"> and color_temp = #{colorTemp}</if>
+            <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
+            <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
+            <if test="status != null"> and status = #{status}</if>
+            <if test="delFlag != null and delFlag != ''"> and del_flag = #{delFlag}</if>
+        </where>
+    </select>
+
+    <select id="selectLedStripsById" parameterType="Long" resultMap="CatLedStripsResult">
+        <include refid="selectLedStripsVo" />
+        where id = #{id}
+    </select>
+
+    <select id="selectLedStripsList" parameterType="com.ruoyi.system.domain.CatLedStrips" resultMap="CatLedStripsResult">
+        <include refid="selectLedStripsVo" />
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null and name != ''"> and name = #{name}</if>
+            <if test="brand != null and brand != ''"> and brand = #{brand}</if>
+            <if test="isSideLight != null"> and is_side_light = #{isSideLight}</if>
+            <if test="voltage != null and voltage != ''"> and voltage = #{voltage}</if>
+            <if test="lengthMeters != null"> and length_meters = #{lengthMeters}</if>
+            <if test="colorTemp != null and colorTemp != ''"> and color_temp = #{colorTemp}</if>
+            <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
+            <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
+            <if test="status != null"> and status = #{status}</if>
+            <if test="delFlag != null and delFlag != ''"> and del_flag = #{delFlag}</if>
+        </where>
+    </select>
+
+    <insert id="insertLedStrips" parameterType="com.ruoyi.system.domain.CatLedStrips" useGeneratedKeys="true" keyProperty="id">
+        insert into cat_led_strips
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="brand != null and brand != ''">brand,</if>
+            <if test="isSideLight != null">is_side_light,</if>
+            <if test="voltage != null and voltage != ''">voltage,</if>
+            <if test="lengthMeters != null">length_meters,</if>
+            <if test="colorTemp != null and colorTemp != ''">color_temp,</if>
+            <if test="stockQuantity != null">stock_quantity,</if>
+            <if test="unitPrice != null">unit_price,</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null and delFlag != ''">del_flag,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="brand != null and brand != ''">#{brand},</if>
+            <if test="isSideLight != null">#{isSideLight},</if>
+            <if test="voltage != null and voltage != ''">#{voltage},</if>
+            <if test="lengthMeters != null">#{lengthMeters},</if>
+            <if test="colorTemp != null and colorTemp != ''">#{colorTemp},</if>
+            <if test="stockQuantity != null">#{stockQuantity},</if>
+            <if test="unitPrice != null">#{unitPrice},</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">#{warehouseLocation},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updateLedStrips" parameterType="com.ruoyi.system.domain.CatLedStrips">
+        update cat_led_strips
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="brand != null and brand != ''">brand = #{brand},</if>
+            <if test="isSideLight != null">is_side_light = #{isSideLight},</if>
+            <if test="voltage != null and voltage != ''">voltage = #{voltage},</if>
+            <if test="lengthMeters != null">length_meters = #{lengthMeters},</if>
+            <if test="colorTemp != null and colorTemp != ''">color_temp = #{colorTemp},</if>
+            <if test="stockQuantity != null">stock_quantity = #{stockQuantity},</if>
+            <if test="unitPrice != null">unit_price = #{unitPrice},</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location = #{warehouseLocation},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteLedStripsById" parameterType="Long">
+        delete from cat_led_strips where id = #{id}
+    </delete>
+
+    <delete id="deleteLedStripsByIds" parameterType="Long[]">
+        delete from cat_led_strips where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

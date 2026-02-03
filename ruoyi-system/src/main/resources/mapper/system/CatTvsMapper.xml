@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.CatTvsMapper">
+    <resultMap type="com.ruoyi.system.domain.CatTvs" id="CatTvsResult">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="brand" column="brand" />
+        <result property="model" column="model" />
+        <result property="screenSize" column="screen_size" />
+        <result property="resolution" column="resolution" />
+        <result property="haveFrame" column="have_frame" />
+        <result property="panelType" column="panel_type" />
+        <result property="portInfo" column="port_info" />
+        <result property="isInternet" column="is_internet" />
+        <result property="flaw" column="flaw" />
+        <result property="energyRating" column="energy_rating" />
+        <result property="stockQuantity" column="stock_quantity" />
+        <result property="unitPrice" column="unit_price" />
+        <result property="warehouseLocation" column="warehouse_location" />
+        <result property="status" column="status" />
+        <result property="delFlag" column="del_flag" />
+    </resultMap>
+
+    <sql id="selectTvsVo">
+        select id, name, brand, model, screen_size, resolution, have_frame, panel_type, port_info, is_internet, flaw, energy_rating, stock_quantity, unit_price, warehouse_location, status, del_flag from cat_tvs
+    </sql>
+
+    <select id="selectTvs" parameterType="com.ruoyi.system.domain.CatTvs" resultMap="CatTvsResult">
+        <include refid="selectTvsVo" />
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null and name != ''"> and name = #{name}</if>
+            <if test="brand != null and brand != ''"> and brand = #{brand}</if>
+            <if test="model != null and model != ''"> and model = #{model}</if>
+            <if test="screenSize != null"> and screen_size = #{screenSize}</if>
+            <if test="resolution != null and resolution != ''"> and resolution = #{resolution}</if>
+            <if test="haveFrame != null and haveFrame != ''"> and have_frame = #{haveFrame}</if>
+            <if test="panelType != null and panelType != ''"> and panel_type = #{panelType}</if>
+            <if test="portInfo != null and portInfo != ''"> and port_info = #{portInfo}</if>
+            <if test="isInternet != null and isInternet != ''"> and is_internet = #{isInternet}</if>
+            <if test="flaw != null and flaw != ''"> and flaw = #{flaw}</if>
+            <if test="energyRating != null and energyRating != ''"> and energy_rating = #{energyRating}</if>
+            <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
+            <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
+            <if test="status != null"> and status = #{status}</if>
+            <if test="delFlag != null and delFlag != ''"> and del_flag = #{delFlag}</if>
+        </where>
+    </select>
+
+    <select id="selectTvsById" parameterType="Long" resultMap="CatTvsResult">
+        <include refid="selectTvsVo" />
+        where id = #{id}
+    </select>
+
+    <select id="selectTvsList" parameterType="com.ruoyi.system.domain.CatTvs" resultMap="CatTvsResult">
+        <include refid="selectTvsVo" />
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null and name != ''"> and name = #{name}</if>
+            <if test="brand != null and brand != ''"> and brand = #{brand}</if>
+            <if test="model != null and model != ''"> and model = #{model}</if>
+            <if test="screenSize != null"> and screen_size = #{screenSize}</if>
+            <if test="resolution != null and resolution != ''"> and resolution = #{resolution}</if>
+            <if test="haveFrame != null and haveFrame != ''"> and have_frame = #{haveFrame}</if>
+            <if test="panelType != null and panelType != ''"> and panel_type = #{panelType}</if>
+            <if test="portInfo != null and portInfo != ''"> and port_info = #{portInfo}</if>
+            <if test="isInternet != null and isInternet != ''"> and is_internet = #{isInternet}</if>
+            <if test="flaw != null and flaw != ''"> and flaw = #{flaw}</if>
+            <if test="energyRating != null and energyRating != ''"> and energy_rating = #{energyRating}</if>
+            <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
+            <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
+            <if test="status != null"> and status = #{status}</if>
+            <if test="delFlag != null and delFlag != ''"> and del_flag = #{delFlag}</if>
+        </where>
+    </select>
+
+    <insert id="insertTvs" parameterType="com.ruoyi.system.domain.CatTvs" useGeneratedKeys="true" keyProperty="id">
+        insert into cat_tvs
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="brand != null and brand != ''">brand,</if>
+            <if test="model != null and model != ''">model,</if>
+            <if test="screenSize != null">screen_size,</if>
+            <if test="resolution != null and resolution != ''">resolution,</if>
+            <if test="haveFrame != null and haveFrame != ''">have_frame,</if>
+            <if test="panelType != null and panelType != ''">panel_type,</if>
+            <if test="portInfo != null and portInfo != ''">port_info,</if>
+            <if test="isInternet != null and isInternet != ''">is_internet,</if>
+            <if test="flaw != null and flaw != ''">flaw,</if>
+            <if test="energyRating != null and energyRating != ''">energy_rating,</if>
+            <if test="stockQuantity != null">stock_quantity,</if>
+            <if test="unitPrice != null">unit_price,</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null and delFlag != ''">del_flag,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="brand != null and brand != ''">#{brand},</if>
+            <if test="model != null and model != ''">#{model},</if>
+            <if test="screenSize != null">#{screenSize},</if>
+            <if test="resolution != null and resolution != ''">#{resolution},</if>
+            <if test="haveFrame != null and haveFrame != ''">#{haveFrame},</if>
+            <if test="panelType != null and panelType != ''">#{panelType},</if>
+            <if test="portInfo != null and portInfo != ''">#{portInfo},</if>
+            <if test="isInternet != null and isInternet != ''">#{isInternet},</if>
+            <if test="flaw != null and flaw != ''">#{flaw},</if>
+            <if test="energyRating != null and energyRating != ''">#{energyRating},</if>
+            <if test="stockQuantity != null">#{stockQuantity},</if>
+            <if test="unitPrice != null">#{unitPrice},</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">#{warehouseLocation},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+        </trim>
+    </insert>
+
+    <update id="updateTvs" parameterType="com.ruoyi.system.domain.CatTvs">
+        update cat_tvs
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="brand != null and brand != ''">brand = #{brand},</if>
+            <if test="model != null and model != ''">model = #{model},</if>
+            <if test="screenSize != null">screen_size = #{screenSize},</if>
+            <if test="resolution != null and resolution != ''">resolution = #{resolution},</if>
+            <if test="haveFrame != null and haveFrame != ''">have_frame = #{haveFrame},</if>
+            <if test="panelType != null and panelType != ''">panel_type = #{panelType},</if>
+            <if test="portInfo != null and portInfo != ''">port_info = #{portInfo},</if>
+            <if test="isInternet != null and isInternet != ''">is_internet = #{isInternet},</if>
+            <if test="flaw != null and flaw != ''">flaw = #{flaw},</if>
+            <if test="energyRating != null and energyRating != ''">energy_rating = #{energyRating},</if>
+            <if test="stockQuantity != null">stock_quantity = #{stockQuantity},</if>
+            <if test="unitPrice != null">unit_price = #{unitPrice},</if>
+            <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location = #{warehouseLocation},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTvsById" parameterType="Long">
+        delete from cat_tvs where id = #{id}
+    </delete>
+
+    <delete id="deleteTvsByIds" parameterType="Long[]">
+        delete from cat_tvs where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
