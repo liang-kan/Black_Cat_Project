@@ -1,19 +1,17 @@
 package com.ruoyi.system.domain;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import lombok.Data;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.annotation.Excel.ColumnType;
-import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
  * 灯条库存表 cat_led_strips
  * 
  * @author ruoyi
  */
-public class CatLedStrips extends BaseEntity
+@Data
+public class CatLedStrips
 {
     private static final long serialVersionUID = 1L;
 
@@ -45,6 +43,30 @@ public class CatLedStrips extends BaseEntity
     @Excel(name = "色温/颜色")
     private String colorTemp;
 
+    /** 插口类型 */
+    @Excel(name = "插口类型")
+    private String socketType;
+
+    /** 屏幕品牌 */
+    @Excel(name = "屏幕品牌")
+    private String screenBrand;
+
+    /** 灯距 */
+    @Excel(name = "灯距", cellType = ColumnType.NUMERIC, scale = 2)
+    private BigDecimal lampSpacing;
+
+    /** 型号 */
+    @Excel(name = "型号")
+    private String model;
+
+    /** 插口大小 */
+    @Excel(name = "插口大小")
+    private String socketSize;
+
+    /** 插口位置 */
+    @Excel(name = "插口位置")
+    private String socketSite;
+
     /** 当前库存数量 */
     @Excel(name = "当前库存数量", cellType = ColumnType.NUMERIC)
     private Integer stockQuantity;
@@ -64,146 +86,19 @@ public class CatLedStrips extends BaseEntity
     /** 删除标志 */
     private String delFlag;
 
-    public Long getId()
-    {
-        return id;
-    }
+    /** 创建者 */
+    private String createBy;
 
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
+    /** 创建时间 */
+    private java.util.Date createTime;
 
-    public String getName()
-    {
-        return name;
-    }
+    /** 更新者 */
+    private String updateBy;
 
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+    /** 更新时间 */
+    private java.util.Date updateTime;
 
-    public String getBrand()
-    {
-        return brand;
-    }
-
-    public void setBrand(String brand)
-    {
-        this.brand = brand;
-    }
-
-    public Integer getIsSideLight()
-    {
-        return isSideLight;
-    }
-
-    public void setIsSideLight(Integer isSideLight)
-    {
-        this.isSideLight = isSideLight;
-    }
-
-    public String getVoltage()
-    {
-        return voltage;
-    }
-
-    public void setVoltage(String voltage)
-    {
-        this.voltage = voltage;
-    }
-
-    public BigDecimal getLengthMeters()
-    {
-        return lengthMeters;
-    }
-
-    public void setLengthMeters(BigDecimal lengthMeters)
-    {
-        this.lengthMeters = lengthMeters;
-    }
-
-    public String getColorTemp()
-    {
-        return colorTemp;
-    }
-
-    public void setColorTemp(String colorTemp)
-    {
-        this.colorTemp = colorTemp;
-    }
-
-    public Integer getStockQuantity()
-    {
-        return stockQuantity;
-    }
-
-    public void setStockQuantity(Integer stockQuantity)
-    {
-        this.stockQuantity = stockQuantity;
-    }
-
-    public BigDecimal getUnitPrice()
-    {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(BigDecimal unitPrice)
-    {
-        this.unitPrice = unitPrice;
-    }
-
-    public String getWarehouseLocation()
-    {
-        return warehouseLocation;
-    }
-
-    public void setWarehouseLocation(String warehouseLocation)
-    {
-        this.warehouseLocation = warehouseLocation;
-    }
-
-    public Integer getStatus()
-    {
-        return status;
-    }
-
-    public void setStatus(Integer status)
-    {
-        this.status = status;
-    }
-
-    public String getDelFlag()
-    {
-        return delFlag;
-    }
-
-    public void setDelFlag(String delFlag)
-    {
-        this.delFlag = delFlag;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .append("id", getId())
-            .append("name", getName())
-            .append("brand", getBrand())
-            .append("isSideLight", getIsSideLight())
-            .append("voltage", getVoltage())
-            .append("lengthMeters", getLengthMeters())
-            .append("colorTemp", getColorTemp())
-            .append("stockQuantity", getStockQuantity())
-            .append("unitPrice", getUnitPrice())
-            .append("warehouseLocation", getWarehouseLocation())
-            .append("status", getStatus())
-            .append("delFlag", getDelFlag())
-            .append("createBy", getCreateBy())
-            .append("createTime", getCreateTime())
-            .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
-            .toString();
-    }
+    /** 备注 */
+    @Excel(name = "备注")
+    private String remark;
 }

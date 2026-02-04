@@ -11,15 +11,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="voltage" column="voltage" />
         <result property="lengthMeters" column="length_meters" />
         <result property="colorTemp" column="color_temp" />
+        <result property="socketType" column="socket_type" />
+        <result property="screenBrand" column="screen_brand" />
+        <result property="lampSpacing" column="lamp_spacing" />
+        <result property="model" column="model" />
+        <result property="socketSize" column="socket_size" />
+        <result property="socketSite" column="socket_site" />
         <result property="stockQuantity" column="stock_quantity" />
         <result property="unitPrice" column="unit_price" />
         <result property="warehouseLocation" column="warehouse_location" />
         <result property="status" column="status" />
         <result property="delFlag" column="del_flag" />
+        <result property="createBy" column="create_by" />
+        <result property="createTime" column="create_time" />
+        <result property="updateBy" column="update_by" />
+        <result property="updateTime" column="update_time" />
+        <result property="remark" column="remark" />
     </resultMap>
 
     <sql id="selectLedStripsVo">
-        select id, name, brand, is_side_light, voltage, length_meters, color_temp, stock_quantity, unit_price, warehouse_location, status, del_flag from cat_led_strips
+        select id, name, brand, is_side_light, voltage, length_meters, color_temp, socket_type, screen_brand, lamp_spacing, model, socket_size, socket_site, stock_quantity, unit_price, warehouse_location, status, del_flag, create_by, create_time, update_by, update_time, remark from cat_led_strips
     </sql>
 
     <select id="selectLedStrips" parameterType="com.ruoyi.system.domain.CatLedStrips" resultMap="CatLedStripsResult">
@@ -32,6 +43,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="voltage != null and voltage != ''"> and voltage = #{voltage}</if>
             <if test="lengthMeters != null"> and length_meters = #{lengthMeters}</if>
             <if test="colorTemp != null and colorTemp != ''"> and color_temp = #{colorTemp}</if>
+            <if test="socketType != null and socketType != ''"> and socket_type = #{socketType}</if>
+            <if test="screenBrand != null and screenBrand != ''"> and screen_brand = #{screenBrand}</if>
+            <if test="lampSpacing != null"> and lamp_spacing = #{lampSpacing}</if>
+            <if test="model != null and model != ''"> and model = #{model}</if>
+            <if test="socketSize != null and socketSize != ''"> and socket_size = #{socketSize}</if>
+            <if test="socketSite != null and socketSite != ''"> and socket_site = #{socketSite}</if>
             <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
             <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
             <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
@@ -55,6 +72,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="voltage != null and voltage != ''"> and voltage = #{voltage}</if>
             <if test="lengthMeters != null"> and length_meters = #{lengthMeters}</if>
             <if test="colorTemp != null and colorTemp != ''"> and color_temp = #{colorTemp}</if>
+            <if test="socketType != null and socketType != ''"> and socket_type = #{socketType}</if>
+            <if test="screenBrand != null and screenBrand != ''"> and screen_brand = #{screenBrand}</if>
+            <if test="lampSpacing != null"> and lamp_spacing = #{lampSpacing}</if>
+            <if test="model != null and model != ''"> and model = #{model}</if>
+            <if test="socketSize != null and socketSize != ''"> and socket_size = #{socketSize}</if>
+            <if test="socketSite != null and socketSite != ''"> and socket_site = #{socketSite}</if>
             <if test="stockQuantity != null"> and stock_quantity = #{stockQuantity}</if>
             <if test="unitPrice != null"> and unit_price = #{unitPrice}</if>
             <if test="warehouseLocation != null and warehouseLocation != ''"> and warehouse_location = #{warehouseLocation}</if>
@@ -72,6 +95,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="voltage != null and voltage != ''">voltage,</if>
             <if test="lengthMeters != null">length_meters,</if>
             <if test="colorTemp != null and colorTemp != ''">color_temp,</if>
+            <if test="socketType != null and socketType != ''">socket_type,</if>
+            <if test="screenBrand != null and screenBrand != ''">screen_brand,</if>
+            <if test="lampSpacing != null">lamp_spacing,</if>
+            <if test="model != null and model != ''">model,</if>
+            <if test="socketSize != null and socketSize != ''">socket_size,</if>
+            <if test="socketSite != null and socketSite != ''">socket_site,</if>
             <if test="stockQuantity != null">stock_quantity,</if>
             <if test="unitPrice != null">unit_price,</if>
             <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location,</if>
@@ -90,6 +119,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="voltage != null and voltage != ''">#{voltage},</if>
             <if test="lengthMeters != null">#{lengthMeters},</if>
             <if test="colorTemp != null and colorTemp != ''">#{colorTemp},</if>
+            <if test="socketType != null and socketType != ''">#{socketType},</if>
+            <if test="screenBrand != null and screenBrand != ''">#{screenBrand},</if>
+            <if test="lampSpacing != null">#{lampSpacing},</if>
+            <if test="model != null and model != ''">#{model},</if>
+            <if test="socketSize != null and socketSize != ''">#{socketSize},</if>
+            <if test="socketSite != null and socketSite != ''">#{socketSite},</if>
             <if test="stockQuantity != null">#{stockQuantity},</if>
             <if test="unitPrice != null">#{unitPrice},</if>
             <if test="warehouseLocation != null and warehouseLocation != ''">#{warehouseLocation},</if>
@@ -112,6 +147,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="voltage != null and voltage != ''">voltage = #{voltage},</if>
             <if test="lengthMeters != null">length_meters = #{lengthMeters},</if>
             <if test="colorTemp != null and colorTemp != ''">color_temp = #{colorTemp},</if>
+            <if test="socketType != null and socketType != ''">socket_type = #{socketType},</if>
+            <if test="screenBrand != null and screenBrand != ''">screen_brand = #{screenBrand},</if>
+            <if test="lampSpacing != null">lamp_spacing = #{lampSpacing},</if>
+            <if test="model != null and model != ''">model = #{model},</if>
+            <if test="socketSize != null and socketSize != ''">socket_size = #{socketSize},</if>
+            <if test="socketSite != null and socketSite != ''">socket_site = #{socketSite},</if>
             <if test="stockQuantity != null">stock_quantity = #{stockQuantity},</if>
             <if test="unitPrice != null">unit_price = #{unitPrice},</if>
             <if test="warehouseLocation != null and warehouseLocation != ''">warehouse_location = #{warehouseLocation},</if>
